@@ -1,5 +1,5 @@
 #!/bin/bash
-#Printing out "Hello World!" using <<
+#Creating Hello World output file.
 
 cat <<EOF
 Hello World!
