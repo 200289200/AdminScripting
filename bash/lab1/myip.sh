@@ -1,4 +1,6 @@
-#!/bin/bash/python
-#Printing out my ip
+#!/bin/bash
+#Printing out my public ip address according to icanhazip.com
 
-ifconfig
+wget -qO - http://www.icanhazip.com
+#or use vvvvvvvvvvv
+#curl icanhazip.com
