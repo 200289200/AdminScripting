@@ -16,6 +16,10 @@ count=0
 ################################################################################
 #Creating Functions
 
+function usage {
+  echo "Usage: $0 [-h]"
+}
+
 function info {
   echo "Input any number from 1 and up.
 Ctrl+C to restart the countdown, Ctrl+\ to quit."
@@ -69,6 +73,31 @@ exit 0
 }
 
 ################################################################################
+
+#Commence the while loop!
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+	-h )
+		info
+		exit 0
+		;;
+	* )
+		showUsage
+		error-message "Argument '$1' not recognized"
+		exit 2
+		;;
+	* )
+		info
+		error-message "Argument '$1' not recognized"
+		exit 2
+		;;
+	esac
+	shift
+done
+
+################################################################################
+
 while [[ 1 ]]; do
 #Essentially, the program is going to run and re-run until it catches an interrupt or quit signal.
 
