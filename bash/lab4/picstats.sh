@@ -42,33 +42,33 @@ function error-message {
 #While loop
 
 #Begin the while loop / case tests!
+havedir=no
 while [ $# -gt 0 ]; do
     case "$1" in
-        -h )
+    -h | --help )
+        usage
+        exit 0
+        ;;
+    -c | --count )
+        if [[ $2 =~ ^[1-9][0-9]*$ ]]; then
+            numoffiles=$2
+            shift
+        else
             usage
-            exit 0
-            ;;
-        #If the input is in the accepted range, set numoffiles to that number, otherwise give an error message.
-        -c )
-            if [[ "$2" =~ ^[1-9][0-9]* ]]; then
-                numoffiles=$2
-                shift
-            else
-                echo "Usage: $0 [-h] [-c #] [directory]" >&2
-                error-message "-c option requires a count"
-                exit 1
-            fi
-            ;;
-        * ) 
-            if [ $there = "false" ]; then
-                defaultdir=$1
-                existingdir=true
-            else
-                echo "Usage: $0 [-h] [-c #] [directory]" >&2
-                error-message "I wasn't able to understand: $1 " >&2
-                exit 1
-            fi
-            ;;
+            error-message
+            exit 1
+        fi
+        ;;
+    * )
+        if [ $havedir = "no" ]; then
+            defaultdir=$1
+            havedir="yes"
+        else
+            usage
+            error-message
+            exit 1
+        fi
+        ;;
     esac
     shift
 done

@@ -17,7 +17,7 @@ count=0
 #Creating Functions
 
 function info {
-  echo "Input any number from 0 and up.
+  echo "Input any number from 1 and up.
 Ctrl+C to restart the countdown, Ctrl+\ to quit."
 }
 

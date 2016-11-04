@@ -13,7 +13,7 @@ declare -i many
 #Creation of Functions
  
 function info {
-  echo "Usage: $0 [-h] [-d #] [-s #]"
+  echo "Usage: $0 [-h] [-c dice] [-s 4-20]"
 }
 
 function error-message {
