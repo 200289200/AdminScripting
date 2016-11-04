@@ -137,24 +137,14 @@ while [ $# -gt 0 ]; do
 		exit 0
 		;;
    -r )
-   defaultroute="true"
-   shift
-    ;;
-    -i )
-   intnum=$2
-   howmany=$2
-   [ -z "$2" ] && howmany=1 
-   shift
-    #for all else
-    ;;
+       defaultroute="true"
+       shift
+        ;;
 	* )
-		#tell the user what the program expects
 		showUsage
-		#tell the user what they did wrong
 		error-message "Argument '$1' not recognized"
 		exit 2
 		;;
-	#end of case statement	
 	* )
 		info
 		error-message "Argument '$1' not recognized"
